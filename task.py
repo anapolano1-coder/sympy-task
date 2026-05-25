@@ -40,7 +40,16 @@ def calcola_integrale_definito(espressione: str, variabile: str, estremo_inf: fl
 
 def calcola_limite(espressione: str, variabile: str, punto: str) -> sympy.Expr:
     """Sub-task 3: Calcolare un Limite."""
-    pass
+
+    import sympy as sp
+
+    var = sp.symbols(variabile)
+    expr = sp.sympify(espressione)
+    pt = sp.sympify(punto)
+
+    return sp.limit(expr, var, pt)
+
+
 
 def calcola_polinomio_taylor(espressione: str, variabile: str, punto: float, ordine: int) -> sympy.Expr:
     """Sub-task 4: Calcolare una Serie di Taylor."""

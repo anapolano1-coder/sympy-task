@@ -65,7 +65,18 @@ def calcola_polinomio_taylor(espressione: str, variabile: str, punto: float, ord
 
 def risolvi_sistema_lineare(eq1: str, eq2: str, var1: str, var2: str) -> Dict[sympy.Symbol, sympy.Expr]:
     """Sub-task 5: Risolvere un Sistema Lineare."""
-    pass
+
+    import sympy as sp
+
+    v1, v2 = sp.symbols(f"{var1} {var2}")
+
+    equazione1 = sp.sympify(eq1)
+    equazione2 = sp.sympify(eq2)
+
+    soluzione = sp.solve((equazione1, equazione2), (v1, v2), dict=True)
+
+    return soluzione[0]
+
 
 def main():
     print("Sub-task 1:", calcola_derivata("x**3 + 2*x", "x"))
